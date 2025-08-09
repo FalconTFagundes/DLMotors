@@ -222,10 +222,10 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
- background: linear-gradient(135deg, #e3eefd, #8d9eff);
-color: #000000;
-
+  --background-color: #BBDEFB !important;
 }
+
+
 
 /*--------------------------------------------------------------
 # Navigation Menu

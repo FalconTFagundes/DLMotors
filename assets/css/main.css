@@ -532,7 +532,6 @@ h6 {
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
 .page-title {
-  color: var(--default-color);
   background-color: var(--background-color);
   background-size: cover;
   background-position: center;
@@ -540,6 +539,7 @@ h6 {
   padding: 160px 0 80px 0;
   text-align: center;
   position: relative;
+
 }
 
 .page-title:before {
@@ -564,15 +564,9 @@ h6 {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
+    
 }
 
-.page-title .breadcrumbs ol a {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.page-title .breadcrumbs ol a:hover {
-  color: var(--contrast-color);
-}
 
 .page-title .breadcrumbs ol li+li {
   padding-left: 10px;
@@ -582,7 +576,8 @@ h6 {
   content: "/";
   display: inline-block;
   padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+
+  
 }
 
 /*--------------------------------------------------------------
@@ -769,8 +764,136 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Featured Services Section
+# Services 
 --------------------------------------------------------------*/
+
+.menu-titulo {
+  margin-top: 1% !important;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #007bff; 
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+
+.menu-servicos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.menu-servicos > ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-servicos li {
+  position: relative;
+}
+
+.menu-servicos a {
+  display: block;
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 91, 187, 0.4);
+}
+
+.menu-servicos a:hover {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  list-style: none;
+  background: #003366;
+  padding: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  animation: fadeDown 0.3s ease forwards;
+  min-width: 220px;
+  z-index: 100;
+}
+
+.submenu li a {
+  padding: 12px 20px;
+  display: block;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.submenu li a:hover {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  transform: translateX(5px);
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-servicos li:hover .submenu {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .menu-servicos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .menu-servicos > ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .submenu {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    background: #00264d;
+    padding: 10px;
+    margin-top: 8px;
+  }
+
+  .menu-servicos li:hover .submenu {
+    display: block;
+  }
+
+  .submenu li a {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+
+
+
+
+
+
 .featured-services .service-item {
   position: relative;
   height: 100%;

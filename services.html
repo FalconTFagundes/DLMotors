@@ -244,6 +244,9 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       animation: fadeInUp 0.6s ease-out;
+      display: flex;
+      flex-direction: column;
+      height: auto;
     }
 
     .service-card:hover {
@@ -256,16 +259,17 @@
       text-align: center;
       margin-bottom: 1.5rem;
       color: #3b82f6;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      line-height: 1.3;
     }
 
     .service-title i {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     /* Image Section */
@@ -306,14 +310,37 @@
       position: relative;
       border-radius: 15px;
       overflow: hidden;
-      height: 200px;
+      height: 280px;
+      /* Aumentado de 200px para 280px */
+      background: rgba(59, 130, 246, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .service-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       transition: opacity 0.3s ease;
+      border-radius: 15px;
+    }
+
+    /* Fallback para imagens que não carregarem */
+    .service-image:not([src]),
+    .service-image[src=""] {
+      background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-image:not([src])::before,
+    .service-image[src=""]::before {
+      content: "🚗";
+      font-size: 3rem;
+      opacity: 0.5;
     }
 
     .image-overlay {
@@ -333,6 +360,8 @@
       line-height: 1.6;
       text-align: center;
       font-size: 0.95rem;
+      flex-grow: 1;
+      /* Para fazer crescer e empurrar o botão para baixo */
     }
 
     .service-description strong {
@@ -358,7 +387,7 @@
       font-style: italic;
     }
 
-    /* WhatsApp Button */
+    /* WhatsApp Button - Agora sempre no final */
     .whatsapp-btn {
       background: linear-gradient(45deg, #25d366, #128c7e);
       color: white;
@@ -371,7 +400,8 @@
       gap: 0.5rem;
       font-weight: 600;
       transition: all 0.3s ease;
-      margin-top: 1.5rem;
+      margin-top: auto;
+      /* Isso empurra o botão para o final do card */
       font-size: 0.9rem;
     }
 
@@ -481,7 +511,18 @@
       }
 
       .image-container {
-        height: 180px;
+        height: 220px;
+        /* Menor em mobile mas ainda maior que antes */
+        background: rgba(59, 130, 246, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service-image {
+        object-fit: cover;
+        object-position: center;
+        border-radius: 15px;
       }
 
       .image-tabs {
@@ -631,13 +672,15 @@
 
           <div class="image-section">
             <div class="image-tabs">
-              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/car/exPolimentoCar.jpg">Exemplo</div>
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/car/exPolimentoCar.jpg">Exemplo
+              </div>
               <div class="image-tab" data-tab="antes" data-img="./assets/img/car/antesPolimentoCar.jpg">Antes</div>
               <div class="image-tab" data-tab="depois" data-img="./assets/img/car/depoisPolimentoCar.jpg">Depois</div>
             </div>
 
             <div class="image-container">
-              <img class="service-image" id="polimento-carro-img" src="./assets/img/car/exPolimentoCar.jpg" alt="Polimento de carro">
+              <img class="service-image" id="polimento-carro-img" src="./assets/img/car/exPolimentoCar.jpg"
+                alt="Polimento de carro">
               <div class="image-overlay">Brilho Renovado</div>
             </div>
           </div>
@@ -669,13 +712,16 @@
 
           <div class="image-section">
             <div class="image-tabs">
-              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/car/exVitrificacaoCar.jpg">Exemplo</div>
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/car/exVitrificacaoCar.jpg">Exemplo
+              </div>
               <div class="image-tab" data-tab="antes" data-img="./assets/img/car/antesVitrificacaoCar.jpg">Antes</div>
-              <div class="image-tab" data-tab="depois" data-img="./assets/img/car/depoisVitrificacaoCar.jpg">Depois</div>
+              <div class="image-tab" data-tab="depois" data-img="./assets/img/car/depoisVitrificacaoCar.jpg">Depois
+              </div>
             </div>
 
             <div class="image-container">
-              <img class="service-image" id="vitrificacao-carro-img" src="./assets/img/car/exVitrificacaoCar.jpg" alt="Vitrificação de carro">
+              <img class="service-image" id="vitrificacao-carro-img" src="./assets/img/car/exVitrificacaoCar.jpg"
+                alt="Vitrificação de carro">
               <div class="image-overlay">Proteção Duradoura</div>
             </div>
           </div>
@@ -704,6 +750,9 @@
             Pintura
           </h3>
           <div class="image-section">
+            <div class="image-tabs">
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/moto/exPinturaCar.jpg">Exemplo</div>
+            </div>
             <div class="image-container">
               <img class="service-image" id="pintura-carro-img" src="./assets/img/car/exPinturaCar.jpg"
                 alt="Pintura de carro">
@@ -737,7 +786,7 @@
         <div class="service-card">
           <h3 class="service-title">
             <i class="bi bi-droplet"></i>
-            Higienização Completa
+            Limpeza Padrão
           </h3>
 
           <div class="image-section">
@@ -754,16 +803,56 @@
           </div>
 
           <div class="service-description">
-            Limpeza <strong>externa e interna</strong> completa, incluindo desengordure do motor,
-            lavagem detalhada e proteção dos componentes.
+            Limpeza <strong>externa completa</strong>, com lavagem das
+            carenagens, rodas e motor, utilizando os melhores produtos para remover
+            resíduos de óleo e sujeira.
           </div>
 
+
           <div class="service-pricing">
-            <div class="price-range">R$ 25,00 - R$ 40,00</div>
+            <div class="price-range">R$ 50,00</div>
             <div class="price-note">125cc • 160cc • Acima 300cc</div>
           </div>
 
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Higienização Completa para moto."
+          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Limpeza Padrão para moto."
+            target="_blank" class="whatsapp-btn">
+            <i class="bi bi-whatsapp"></i>
+            Solicitar Serviço
+          </a>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-title">
+            <i class="bi bi-droplet"></i>
+            Limpeza Detalhada
+          </h3>
+
+          <div class="image-section">
+            <div class="image-tabs">
+              <div class="image-tab active" data-tab="exemplo">Exemplo</div>
+              <div class="image-tab" data-tab="antes">Antes</div>
+              <div class="image-tab" data-tab="depois">Depois</div>
+            </div>
+
+            <div class="image-container">
+              <img class="service-image" id="limpeza-detalhada-moto-img" src="" alt="Limpeza detalhada de moto">
+              <div class="image-overlay">Brilho e Proteção</div>
+            </div>
+          </div>
+
+          <div class="service-description">
+            Limpeza <strong>externa completa</strong>, com aplicação de
+            <strong>revitalizador</strong> nas partes plásticas e
+            <strong>cera protetora</strong> na pintura, garantindo mais brilho
+            e proteção contra os efeitos do tempo.
+          </div>
+
+          <div class="service-pricing">
+            <div class="price-range">R$ 100,00</div>
+            <div class="price-note">125cc • 160cc • Acima 300cc</div>
+          </div>
+
+          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Limpeza Detalhada para moto."
             target="_blank" class="whatsapp-btn">
             <i class="bi bi-whatsapp"></i>
             Solicitar Serviço
@@ -779,13 +868,15 @@
 
           <div class="image-section">
             <div class="image-tabs">
-              <div class="image-tab active" data-tab="exemplo">Exemplo</div>
-              <div class="image-tab" data-tab="antes">Antes</div>
-              <div class="image-tab" data-tab="depois">Depois</div>
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/moto/exPolimentoMoto.jpg">Exemplo
+              </div>
+              <div class="image-tab" data-tab="antes" data-img="./assets/img/moto/antesPolimentoMoto.jpg">Antes</div>
+              <div class="image-tab" data-tab="depois" data-img="./assets/img/moto/depoisPolimentoMoto.jpg">Depois</div>
             </div>
 
             <div class="image-container">
-              <img class="service-image" id="polimento-moto-img" src="" alt="Polimento de moto">
+              <img class="service-image" id="polimento-moto-img" src="./assets/img/moto/exPolimentoMoto.jpg"
+                alt="Polimento de moto">
               <div class="image-overlay">Brilho Renovado</div>
             </div>
           </div>
@@ -796,7 +887,7 @@
           </div>
 
           <div class="service-pricing">
-            <div class="price-range">R$ 80,00 - R$ 120,00</div>
+            <div class="price-range">Sob Consulta</div>
             <div class="price-note">Varia conforme estado da pintura</div>
           </div>
 
@@ -811,29 +902,34 @@
         <div class="service-card">
           <h3 class="service-title">
             <i class="bi bi-shield-check"></i>
-            Vitrificação
+            Vitrificação Dos Plásticos
           </h3>
 
           <div class="image-section">
             <div class="image-tabs">
-              <div class="image-tab active" data-tab="exemplo">Exemplo</div>
-              <div class="image-tab" data-tab="antes">Antes</div>
-              <div class="image-tab" data-tab="depois">Depois</div>
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/moto/exVitrificacaoMoto.jpg">
+                Exemplo</div>
+              <div class="image-tab" data-tab="antes" data-img="./assets/img/moto/antesVitrificacaoMoto.jpg">Antes</div>
+              <div class="image-tab" data-tab="depois" data-img="./assets/img/moto/depoisVitrificacaoMoto.jpg">Depois
+              </div>
             </div>
 
             <div class="image-container">
-              <img class="service-image" id="vitrificacao-moto-img" src="" alt="Vitrificação de moto">
+              <img class="service-image" id="vitrificacao-moto-img" src="./assets/img/moto/exVitrificacaoMoto.jpg"
+                alt="Vitrificação de moto">
               <div class="image-overlay">Proteção Duradoura</div>
             </div>
           </div>
 
           <div class="service-description">
             <strong>Proteção nanotecnológica</strong> que forma uma camada protetora
-            contra raios UV, chuva ácida e contaminantes.
+            contra raios UV, chuva ácida e contaminantes, incluindo também a
+            <strong>limpeza completa da moto</strong> antes da aplicação para garantir máxima durabilidade.
           </div>
 
+
           <div class="service-pricing">
-            <div class="price-range">R$ 180,00 - R$ 280,00</div>
+            <div class="price-range">Sob Consulta</div>
             <div class="price-note">Proteção por 12 meses</div>
           </div>
 
@@ -851,15 +947,14 @@
             Pintura
           </h3>
 
+
           <div class="image-section">
             <div class="image-tabs">
-              <div class="image-tab active" data-tab="exemplo">Exemplo</div>
-              <div class="image-tab" data-tab="antes">Antes</div>
-              <div class="image-tab" data-tab="depois">Depois</div>
+              <div class="image-tab active" data-tab="exemplo" data-img="./assets/img/moto/exPinturaMoto.jpg">Exemplo</div>
             </div>
-
             <div class="image-container">
-              <img class="service-image" id="pintura-moto-img" src="" alt="Pintura de moto">
+              <img class="service-image" id="pintura-moto-img" src="./assets/img/moto/exPinturaMoto.png"
+                alt="Pintura de moto">
               <div class="image-overlay">Renovação Total</div>
             </div>
           </div>

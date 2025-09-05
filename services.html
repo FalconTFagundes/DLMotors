@@ -2,1520 +2,1569 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Serviços - DL Motors | Estética Automotiva</title>
-  <meta name="description"
-    content="Conheça os serviços da DL Motors: Limpeza de carros, estética automotiva, personalização de motos e muito mais em Guarapari-ES">
-  <meta name="keywords" content="limpeza carro, estética automotiva, personalização moto, lavagem detalhada, Guarapari">
-
-  <!-- Favicons -->
-  <link href="assets/img/icon.ico" rel="icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
-    rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f1419 0%, #1e3a8a 100%);
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    /* Header */
-    .header {
-      background: rgba(15, 20, 25, 0.95);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 0;
-      box-shadow: 0 2px 20px rgba(59, 130, 246, 0.1);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      height: 50px;
-      min-width: 150px;
-    }
-
-    .logo img {
-      height: 70px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .logo-placeholder {
-      height: 45px;
-      width: 150px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 2px dashed rgba(59, 130, 246, 0.3);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(59, 130, 246, 0.6);
-      font-size: 0.9rem;
-    }
-
-    .nav-menu ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-menu a:hover {
-      color: #3b82f6;
-    }
-
-    .nav-menu a.active {
-      color: #3b82f6;
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background: #3b82f6;
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover::after,
-    .nav-menu a.active::after {
-      width: 100%;
-    }
-
-    /* Mobile Navigation */
-    .mobile-nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* Main Content */
-    .main {
-      margin-top: 100px;
-      padding: 2rem 0;
-    }
-
-    .page-header {
-      text-align: center;
-      padding: 2rem 0;
-      background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
-      margin-bottom: 2rem;
-      border-radius: 15px;
-    }
-
-    .page-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(45deg, #3b82f6, #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .page-header p {
-      font-size: 1.1rem;
-      opacity: 0.8;
-    }
-
-    .breadcrumbs {
-      margin-top: 1rem;
-    }
-
-    .breadcrumbs ol {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 0.5rem;
-    }
-
-    .breadcrumbs a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-
-    .breadcrumbs .current {
-      opacity: 0.7;
-    }
-
-    /* Vehicle Selection */
-    .vehicle-selector {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .vehicle-btn {
-      background: rgba(30, 58, 138, 0.1);
-      border: 2px solid rgba(59, 130, 246, 0.3);
-      color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      min-width: 150px;
-      justify-content: center;
-    }
-
-    .vehicle-btn:hover {
-      border-color: #3b82f6;
-      background: rgba(59, 130, 246, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-    }
-
-    .vehicle-btn.active {
-      background: linear-gradient(45deg, #3b82f6, #60a5fa);
-      border-color: #3b82f6;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-
-    .vehicle-btn i {
-      font-size: 1.2rem;
-    }
-
-    /* Services Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .service-card {
-      background: rgba(30, 58, 138, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out;
-      display: flex;
-      flex-direction: column;
-      height: auto;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: #3b82f6;
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-    }
-
-    .service-title {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #3b82f6;
-      font-size: 1.2rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      line-height: 1.3;
-    }
-
-    .service-title i {
-      font-size: 1.1rem;
-    }
-
-    /* NOVA GALERIA DE IMAGENS */
-    .image-gallery {
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    .gallery-container {
-      position: relative;
-      height: 300px;
-      border-radius: 15px;
-      overflow: hidden;
-      background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
-    }
-
-    .gallery-slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .gallery-slide.active {
-      opacity: 1;
-    }
-
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-    }
-
-    .gallery-slide .placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      opacity: 0.5;
-      background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
-    }
-
-    .slide-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    /* Controles da galeria */
-    .gallery-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      border: none;
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .gallery-nav:hover {
-      background: rgba(59, 130, 246, 0.8);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .gallery-prev {
-      left: 10px;
-    }
-
-    .gallery-next {
-      right: 10px;
-    }
-
-    /* Indicadores */
-    .gallery-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .gallery-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .gallery-dot.active {
-      background: #3b82f6;
-      transform: scale(1.2);
-    }
-
-    /* Contador de imagens */
-    .image-counter {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-    }
-
-    .service-description {
-      margin: 1.5rem 0;
-      line-height: 1.6;
-      text-align: center;
-      font-size: 0.95rem;
-      flex-grow: 1;
-    }
-
-    .service-description strong {
-      color: #3b82f6;
-    }
-
-    /* Pricing */
-    .service-pricing {
-      text-align: center;
-      margin: 1rem 0;
-    }
-
-    .price-range {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #60a5fa;
-      margin-bottom: 0.5rem;
-    }
-
-    .price-note {
-      font-size: 0.8rem;
-      opacity: 0.8;
-      font-style: italic;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-btn {
-      background: linear-gradient(45deg, #25d366, #128c7e);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      margin-top: auto;
-      font-size: 0.9rem;
-    }
-
-    .whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-      color: white;
-      text-decoration: none;
-    }
-
-    /* WhatsApp Floating Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(45deg, #25d366, #128c7e);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      z-index: 1000;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-    }
-
-    .whatsapp-float i {
-      color: white;
-      font-size: 1.5rem;
-    }
-
-    /* Hidden state */
-    .hidden {
-      display: none !important;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .mobile-nav-toggle {
-        display: block;
-      }
-
-      .nav-menu ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100vw;
-        background: rgba(15, 20, 25, 0.98);
-        padding: 1rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .nav-menu ul.show {
-        display: flex;
-      }
-
-      .nav-menu ul li {
-        margin: 0.5rem 0;
-      }
-
-      .nav-menu a {
-        display: block;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        transition: background 0.3s ease;
-      }
-
-      .nav-menu a:hover,
-      .nav-menu a.active {
-        background: rgba(59, 130, 246, 0.1);
-      }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      .page-header h1 {
-        font-size: 2rem;
-      }
-
-      .vehicle-selector {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .vehicle-btn {
-        width: 100%;
-        max-width: 250px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .service-card {
-        padding: 1.5rem;
-      }
-
-      .gallery-container {
-        height: 500px;
-      }
-
-      .gallery-nav {
-        width: 50px;
-        height: 50px;
-        font-size: 1.4rem;
-      }
-
-      .gallery-prev {
-        left: 15px;
-      }
-
-      .gallery-next {
-        right: 15px;
-      }
-
-      .slide-overlay {
-        padding: 1.5rem;
-        font-size: 1.1rem;
-      }
-
-      .image-counter {
-        top: 15px;
-        right: 15px;
-        padding: 8px 15px;
-        font-size: 0.9rem;
-      }
-
-      .gallery-indicators {
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .gallery-dot {
-        width: 14px;
-        height: 14px;
-      }
-    }
-
-    /* Animations */
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      }
-
-      50% {
-        box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
-      }
-
-      100% {
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      animation: fadeInUp 0.6s ease-out;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Serviços - DL Motors | Estética Automotiva</title>
+    <meta name="description"
+        content="Conheça os serviços da DL Motors: Limpeza de carros, estética automotiva, personalização de motos e muito mais em Guarapari-ES">
+    <meta name="keywords"
+        content="limpeza carro, estética automotiva, personalização moto, lavagem detalhada, Guarapari">
+
+    <!-- Favicons -->
+    <link href="assets/img/icon.ico" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1e3a8a 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 50px;
+            min-width: 150px;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            height: 45px;
+            width: 150px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(59, 130, 246, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #3b82f6;
+        }
+
+        .nav-menu a.active {
+            color: #3b82f6;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
+            margin-bottom: 2rem;
+            border-radius: 15px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumbs {
+            margin-top: 1rem;
+        }
+
+        .breadcrumbs ol {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .breadcrumbs a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .breadcrumbs .current {
+            opacity: 0.7;
+        }
+
+        /* Vehicle Selection */
+        .vehicle-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .vehicle-btn {
+            background: rgba(30, 58, 138, 0.1);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 150px;
+            justify-content: center;
+        }
+
+        .vehicle-btn:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .vehicle-btn.active {
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .vehicle-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .service-card {
+            background: rgba(30, 58, 138, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Service Level Badge */
+        .service-level {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-level.essencial {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+
+        .service-level.premium {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+        }
+
+        .service-level.elite {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+        }
+
+        .service-level.luxo {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+        }
+
+        .service-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            color: #3b82f6;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .service-title i {
+            font-size: 1.2rem;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            margin: 1.5rem 0;
+        }
+
+        .gallery-container {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(59, 130, 246, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .image-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .placeholder {
+            font-size: 4rem;
+            color: rgba(59, 130, 246, 0.6);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(59, 130, 246, 0.8);
+        }
+
+        .gallery-prev {
+            left: 10px;
+        }
+
+        .gallery-next {
+            right: 10px;
+        }
+
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: #3b82f6;
+        }
+
+        /* Service Description */
+        .service-description {
+            margin: 1.5rem 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .service-description h4 {
+            color: #60a5fa;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .service-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-description li {
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .service-description li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .service-description strong {
+            color: #3b82f6;
+        }
+
+        /* Pricing */
+        .service-pricing {
+            margin: 1.5rem 0;
+        }
+
+        .price-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .vehicle-type {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .price-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .single-price {
+            text-align: center;
+        }
+
+        .single-price .price-value {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Hidden state */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .nav-menu ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100vw;
+                background: rgba(15, 20, 25, 0.98);
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-menu ul.show {
+                display: flex;
+            }
+
+            .nav-menu ul li {
+                margin: 0.5rem 0;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+                transition: background 0.3s ease;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                background: rgba(59, 130, 246, 0.1);
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .vehicle-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .vehicle-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <img src="assets/img/hero-img_2.png" alt="Logo"
-            onerror="this.parentElement.innerHTML='<div class=&quot;logo-placeholder&quot;>Sua Logo Aqui</div>'">
-        </a>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/hero-img_2.png" alt="Logo"
+                        onerror="this.parentElement.innerHTML='<div class=&quot;logo-placeholder&quot;>Sua Logo Aqui</div>'">
+                </a>
 
-        <nav class="nav-menu">
-          <ul id="navMenu">
-            <li><a href="index.html">INÍCIO</a></li>
-            <li><a href="services.html" class="active">SERVIÇOS</a></li>
-            <li><a href="contact.html">CONTATO</a></li>
-          </ul>
-          <button class="mobile-nav-toggle" id="mobileToggle">
-            <i class="bi bi-list"></i>
-          </button>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-    <div class="container">
-
-      <!-- Page Header -->
-      <div class="page-header">
-        <h1>Nossos Serviços</h1>
-        <p>Selecione o tipo de veículo e conheça nossos serviços especializados</p>
-
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Início</a></li>
-            <li>›</li>
-            <li class="current">Serviços</li>
-          </ol>
-        </nav>
-      </div>
-
-      <!-- Vehicle Selector -->
-      <div class="vehicle-selector">
-        <button class="vehicle-btn active" data-vehicle="carro">
-          <i class="bi bi-car-front"></i>
-          Carro
-        </button>
-        <button class="vehicle-btn" data-vehicle="moto">
-          <i class="bi bi-bicycle"></i>
-          Moto
-        </button>
-      </div>
-
-      <!-- Car Services -->
-      <div id="carro-services" class="services-grid">
-
-        <!-- Higienização Carro -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-droplet"></i>
-            Higienização Completa
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="higienizacao-carro">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">5</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/car/exHigienizacaoCar.jpg" alt="Exemplo de higienização">
-                <div class="slide-overlay">Exemplo de Limpeza</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/antesHigienizacaoCar.jpg" alt="Antes da higienização">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/depoisHigienizacaoCar.jpg" alt="Depois da higienização">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <div class="gallery-slide">
-                <div class="placeholder">🚗</div>
-                <div class="slide-overlay">Interior Limpo</div>
-              </div>
-
-              <div class="gallery-slide">
-                <div class="placeholder">✨</div>
-                <div class="slide-overlay">Resultado Final</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
+                <nav class="nav-menu">
+                    <ul id="navMenu">
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="services.html" class="active">SERVIÇOS</a></li>
+                        <li><a href="contact.html">CONTATO</a></li>
+                    </ul>
+                    <button class="mobile-nav-toggle" id="mobileToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </nav>
             </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            Limpeza <strong>externa e interna</strong> completa, incluindo aspiração, lavagem detalhada,
-            aplicação de aroma e pretinho nos pneus.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">R$ 50,00 - R$ 70,00</div>
-            <div class="price-note">Hatch • Sedan • Picape</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Higienização Completa para carro."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
         </div>
+    </header>
 
-        <!-- Polimentos Carro -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-stars"></i>
-            Polimentos
-          </h3>
+    <main class="main">
+        <div class="container">
 
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="polimento-carro">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/car/exPolimentoCar.jpg" alt="Exemplo de polimento">
-                <div class="slide-overlay">Farol Polido</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/antesPolimentoCar.jpg" alt="Antes do polimento">
-                <div class="slide-overlay">Farol Amarelado</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/depoisPolimentoCar.jpg" alt="Depois do polimento">
-                <div class="slide-overlay">Resultado</div>
-              </div>
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Nossos Serviços</h1>
+                <p>Selecione o tipo de veículo e conheça nossos pacotes de limpeza</p>
 
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Início</a></li>
+                        <li>›</li>
+                        <li class="current">Serviços</li>
+                    </ol>
+                </nav>
             </div>
 
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
+            <!-- Vehicle Selector -->
+            <div class="vehicle-selector">
+                <button class="vehicle-btn active" data-vehicle="carro">
+                    <i class="bi bi-car-front"></i>
+                    Carro
+                </button>
+                <button class="vehicle-btn" data-vehicle="moto">
+                    <i class="bi bi-bicycle"></i>
+                    Moto
+                </button>
             </div>
-          </div>
 
-          <div class="service-description">
-            <strong>Polimento técnico de faróis</strong> para remover o amarelado e arranhões,
-            restaurando e melhorando a iluminação do veículo.
-          </div>
+            <!-- Car Services -->
+            <div id="carro-services" class="services-grid">
 
-          <div class="service-pricing">
-            <div class="price-range">R$ 100,00</div>
-            <div class="price-note">Varia conforme estado do farol</div>
-          </div>
+                <!-- Limpeza Essencial Carro -->
+                <div class="service-card">
+                    <div class="service-level essencial">Essencial</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-droplet"></i>
+                        Limpeza Essencial
+                    </h3>
 
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Polimento para carro."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Limpeza externa completa</li>
+                            <li>Aspiração interna</li>
+                            <li>Aromatizante</li>
+                            <li>Revitalizador de pneu</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing">
+                        <div class="price-options">
+                            <div class="price-item">
+                                <span class="vehicle-type">Hatch</span>
+                                <span class="price-value">R$ 50,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">Sedan</span>
+                                <span class="price-value">R$ 60,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">SUV/Picape</span>
+                                <span class="price-value">R$ 70,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Essencial para carro."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Premium Carro -->
+                <div class="service-card">
+                    <div class="service-level premium">Premium</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-stars"></i>
+                        Limpeza Premium
+                    </h3>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Limpeza externa e interna</li>
+                            <li>Detalhamento com pincel</li>
+                            <li>Revitalizador de plásticos</li>
+                            <li>Cera protetora</li>
+                            <li>Aromatizante</li>
+                            <li>Revitalizador de pneus</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing">
+                        <div class="price-options">
+                            <div class="price-item">
+                                <span class="vehicle-type">Hatch</span>
+                                <span class="price-value">R$ 100,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">Sedan</span>
+                                <span class="price-value">R$ 110,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">SUV/Picape</span>
+                                <span class="price-value">R$ 120,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Premium para carro."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Elite Carro -->
+                <div class="service-card">
+                    <div class="service-level elite">Elite</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-gem"></i>
+                        Limpeza Elite
+                    </h3>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Limpeza externa e interna</li>
+                            <li>Detalhamento com pincel</li>
+                            <li>Revitalizador de plásticos</li>
+                            <li>Cera protetora</li>
+                            <li>Remoção de chuva ácida dos vidros</li>
+                            <li>Polimento dos faróis</li>
+                            <li>Aromatizante</li>
+                            <li>Revitalizador de pneus</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing">
+                        <div class="price-options">
+                            <div class="price-item">
+                                <span class="vehicle-type">Hatch</span>
+                                <span class="price-value">R$ 120,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">Sedan</span>
+                                <span class="price-value">R$ 140,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">SUV/Picape</span>
+                                <span class="price-value">R$ 160,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Elite para carro."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Luxo Carro -->
+                <div class="service-card">
+                    <div class="service-level luxo">Luxo</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-award"></i>
+                        Limpeza Luxo
+                    </h3>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Limpeza externa e interna</li>
+                            <li>Detalhamento com pincel</li>
+                            <li>Revitalizador de plásticos</li>
+                            <li>Cera protetora</li>
+                            <li>Remoção de chuva ácida dos vidros</li>
+                            <li>Polimento dos faróis</li>
+                            <li>Polimento comercial da pintura</li>
+                            <li>Aromatizante</li>
+                            <li>Revitalizador de pneus</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing">
+                        <div class="price-options">
+                            <div class="price-item">
+                                <span class="vehicle-type">Hatch</span>
+                                <span class="price-value">R$ 450,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">Sedan</span>
+                                <span class="price-value">R$ 550,00</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="vehicle-type">SUV/Picape</span>
+                                <span class="price-value">R$ 650,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Luxo para carro."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Moto Services -->
+            <div id="moto-services" class="services-grid hidden">
+
+                <!-- Limpeza Essencial Moto -->
+                <div class="service-card">
+                    <div class="service-level essencial">Essencial</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-droplet"></i>
+                        Limpeza Essencial
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="essencial-moto">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesEssencialLimpezaMoto.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisEssencialLimpezaMoto.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Pré-limpeza</li>
+                            <li>Limpeza com esfregação</li>
+                            <li>Revitalizador de pneu</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">R$ 50,00</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Essencial para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Premium Moto -->
+                <div class="service-card">
+                    <div class="service-level premium">Premium</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-stars"></i>
+                        Limpeza Premium
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="premium-moto">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesPremiumLimpezaMoto.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisPremiumLimpezaMoto.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Pré-limpeza</li>
+                            <li>Limpeza com esfregação e pincel</li>
+                            <li>Limpeza da coroa e corrente</li>
+                            <li>Revitalizador de pneu</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">R$ 100,00</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Premium para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Elite Moto -->
+                <div class="service-card">
+                    <div class="service-level elite">Elite</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-gem"></i>
+                        Limpeza Elite
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="elite-moto">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesEliteLimpezaMoto.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisEliteLimpezaMoto.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Pré-limpeza</li>
+                            <li>Limpeza com esfregação e pincel</li>
+                            <li>Limpeza da coroa e corrente</li>
+                            <li>Remoção da capa do pinhão</li>
+                            <li>Cera protetora</li>
+                            <li>Revitalizador de plásticos</li>
+                            <li>Revitalizador de pneu</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">R$ 150,00</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Elite para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Limpeza Luxo Moto -->
+                <div class="service-card">
+                    <div class="service-level luxo">Luxo</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-award"></i>
+                        Limpeza Luxo
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="luxo-moto">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/antesLuxoLimpezaMoto.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <!-- Depois -->
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisLuxoLimpezaMoto.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Pré-limpeza</li>
+                            <li>Limpeza com esfregação e pincel</li>
+                            <li>Limpeza da coroa e corrente</li>
+                            <li>Remoção da capa do pinhão</li>
+                            <li>Cera protetora</li>
+                            <li>Revitalizador de plásticos</li>
+                            <li>Polimento comercial nas carenagens e tanque</li>
+                            <li>Revitalizador de pneu</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">R$ 350,00</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Limpeza Luxo para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Polimento de Tanque -->
+                <div class="service-card">
+                    <div class="service-level premium">Especialidade</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-droplet-half"></i>
+                        Polimento de Tanque
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="polimento-tanque">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesPolimentoTanque.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisPolimentoTanque.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Polimento profissional do tanque</li>
+                            <li>Remoção de riscos superficiais</li>
+                            <li>Aplicação de cera protetora</li>
+                            <li>Acabamento espelhado</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">Valor Sob Consulta</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o Polimento de Tanque para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Polimento de Escapamento -->
+                <div class="service-card">
+                    <div class="service-level premium">Especialidade</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-gear-wide-connected"></i>
+                        Polimento de Escapamento
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="polimento-escapamento">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesPolimentoEscapamento.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisPolimentoEscapamento.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Polimento profissional do escapamento</li>
+                            <li>Remoção de oxidação</li>
+                            <li>Limpeza interna e externa</li>
+                            <li>Proteção contra corrosão</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">Valor Sob Consulta</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o Polimento de Escapamento para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Vitrificação dos Plásticos -->
+                <div class="service-card">
+                    <div class="service-level elite">Especialidade</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-shield-check"></i>
+                        Vitrificação dos Plásticos
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="vitrificacao-plasticos">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesVitrificacaoPlasticos.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisVitrificacaoPlasticos.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Preparação e limpeza dos plásticos</li>
+                            <li>Aplicação de vitrificação cerâmica</li>
+                            <li>Proteção UV avançada</li>
+                            <li>Durabilidade de até 2 anos</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">Valor Sob Consulta</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar a Vitrificação dos Plásticos para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+                <!-- Pintura -->
+                <div class="service-card">
+                    <div class="service-level luxo">Especialidade</div>
+                    <h3 class="service-title">
+                        <i class="bi bi-palette"></i>
+                        Pintura
+                    </h3>
+
+                    <div class="image-gallery">
+                        <div class="gallery-container" data-gallery="pintura">
+                            <div class="image-counter">
+                                <span class="current-image">1</span>/<span class="total-images">2</span>
+                            </div>
+
+                            <div class="gallery-slide active">
+                                <img src="./assets/img/moto/antesPinturaMoto.png">
+                                <div class="slide-overlay">Antes</div>
+                            </div>
+
+                            <div class="gallery-slide">
+                                <img src="./assets/img/moto/depoisPinturaMoto.png">
+                                <div class="slide-overlay">Depois</div>
+                            </div>
+
+
+                            <button class="gallery-nav gallery-prev">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="gallery-nav gallery-next">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="gallery-indicators">
+                            <div class="gallery-dot active"></div>
+                            <div class="gallery-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-description">
+                        <h4>O que está incluso:</h4>
+                        <ul>
+                            <li>Preparação completa da superfície</li>
+                            <li>Aplicação de primer</li>
+                            <li>Pintura profissional</li>
+                            <li>Verniz protetor</li>
+                            <li>Acabamento de alta qualidade</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-pricing single-price">
+                        <span class="price-value">Valor Sob Consulta</span>
+                    </div>
+
+                    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Pintura para moto."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="bi bi-whatsapp"></i>
+                        Solicitar Serviço
+                    </a>
+                </div>
+
+            </div>
         </div>
-
-        <!-- Vitrificação Carro -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-shield-check"></i>
-            Vitrificação Dos Plásticos
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="vitrificacao-carro">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">4</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/car/exVitrificacaoCar.jpg" alt="Exemplo de vitrificação">
-                <div class="slide-overlay">Proteção Aplicada</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/antesVitrificacaoCar.jpg" alt="Antes da vitrificação">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/car/depoisVitrificacaoCar.jpg" alt="Depois da vitrificação">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <div class="gallery-slide">
-                <div class="placeholder">🛡️</div>
-                <div class="slide-overlay">Proteção Duradoura</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            <strong>Proteção nanotecnológica</strong> que forma uma camada protetora
-            contra raios UV, chuva ácida e contaminantes.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Proteção por 12 meses</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Vitrificação para carro."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Pintura Carro -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-brush"></i>
-            Pintura
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="pintura-carro">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">2</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/car/exPinturaCar.jpg" alt="Exemplo de pintura">
-                <div class="slide-overlay">Pintura Renovada</div>
-              </div>
-
-              <div class="gallery-slide">
-                <div class="placeholder">🎨</div>
-                <div class="slide-overlay">Acabamento Profissional</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            Serviços de <strong>repintura e retoque</strong>, desde pequenos reparos
-            até pintura completa com acabamento profissional.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Orçamento personalizado</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar orçamento para serviços de Pintura de carro."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Orçamento
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Moto Services -->
-      <div id="moto-services" class="services-grid hidden">
-
-        <!-- Limpeza Padrão Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-droplet"></i>
-            Limpeza Padrão
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="limpeza-padrao-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <div class="placeholder">🏍️</div>
-                <div class="slide-overlay">Limpeza Externa</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <div class="placeholder">💧</div>
-                <div class="slide-overlay">Lavagem Completa</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <div class="placeholder">✨</div>
-                <div class="slide-overlay">Resultado</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            Limpeza <strong>externa completa</strong>, com lavagem das
-            carenagens, rodas e motor, utilizando os melhores produtos para remover
-            resíduos de óleo e sujeira.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">R$ 50,00</div>
-            <div class="price-note">125cc • 160cc • Acima 300cc</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Limpeza Padrão para moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Limpeza Detalhada Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-droplet"></i>
-            Limpeza Detalhada
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="limpeza-detalhada-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">4</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <div class="placeholder">🏍️</div>
-                <div class="slide-overlay">Limpeza Detalhada</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <div class="placeholder">🛡️</div>
-                <div class="slide-overlay">Revitalizador</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <div class="placeholder">✨</div>
-                <div class="slide-overlay">Cera Protetora</div>
-              </div>
-
-              <div class="gallery-slide">
-                <div class="placeholder">🌟</div>
-                <div class="slide-overlay">Brilho Final</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            Limpeza <strong>externa completa</strong>, com aplicação de
-            <strong>revitalizador</strong> nas partes plásticas e
-            <strong>cera protetora</strong> na pintura, garantindo mais brilho
-            e proteção contra os efeitos do tempo.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">R$ 100,00</div>
-            <div class="price-note">125cc • 160cc • Acima 300cc</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Limpeza Detalhada para moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Polimento Tanque Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-stars"></i>
-            Polimento de Tanque
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="polimento-tanque-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/moto/exPolimentoMoto.jpg" alt="Exemplo polimento tanque">
-                <div class="slide-overlay">Tanque Polido</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/antesPolimentoMoto.jpg" alt="Antes polimento">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/depoisPolimentoMoto.jpg" alt="Depois polimento">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            <strong>Polimento técnico</strong> para tanque, carenagem e partes plásticas,
-            removendo riscos e oxidação, devolvendo o brilho original.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Varia conforme estado da pintura</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Polimento para moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Polimento Escapamento Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-stars"></i>
-            Polimento de Escapamento
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="polimento-escapamento-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/moto/exPolimentoEscapamento.jpg" alt="Exemplo polimento escapamento">
-                <div class="slide-overlay">Escapamento Polido</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/antesPolimentoEscapamento.png" alt="Antes polimento">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/depoisPolimentoEscapamento.jpg" alt="Depois polimento">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            <strong>Polimento técnico</strong> para escapamentos em aço inox e cromados,
-            removendo manchas e oxidação, restaurando o brilho original.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Varia conforme condição do escapamento</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Polimento para moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Vitrificação Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-shield-check"></i>
-            Vitrificação Dos Plásticos
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="vitrificacao-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/moto/exVitrificacaoMoto.jpg" alt="Exemplo vitrificação">
-                <div class="slide-overlay">Proteção Aplicada</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/antesVitrificacaoMoto.jpg" alt="Antes vitrificação">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/depoisVitrificacaoMoto.jpg" alt="Depois vitrificação">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            <strong>Proteção nanotecnológica</strong> que forma uma camada protetora
-            contra raios UV, chuva ácida e contaminantes, incluindo também a
-            <strong>limpeza completa da moto</strong> antes da aplicação para garantir máxima durabilidade.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Proteção por 12 meses</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar o serviço de Vitrificação para moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Serviço
-          </a>
-        </div>
-
-        <!-- Pintura Moto -->
-        <div class="service-card">
-          <h3 class="service-title">
-            <i class="bi bi-brush"></i>
-            Pintura
-          </h3>
-
-          <div class="image-gallery">
-            <div class="gallery-container" data-gallery="pintura-moto">
-              <div class="image-counter">
-                <span class="current-image">1</span>/<span class="total-images">3</span>
-              </div>
-              
-              <div class="gallery-slide active">
-                <img src="./assets/img/moto/exPinturaMoto.jpg" alt="Exemplo pintura">
-                <div class="slide-overlay">Pintura Renovada</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/antesPinturaMoto.png" alt="Antes pintura">
-                <div class="slide-overlay">Antes</div>
-              </div>
-              
-              <div class="gallery-slide">
-                <img src="./assets/img/moto/depoisPinturaMoto.png" alt="Depois pintura">
-                <div class="slide-overlay">Depois</div>
-              </div>
-
-              <button class="gallery-nav gallery-prev">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="gallery-nav gallery-next">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-
-            <div class="gallery-indicators">
-              <div class="gallery-dot active"></div>
-              <div class="gallery-dot"></div>
-              <div class="gallery-dot"></div>
-            </div>
-          </div>
-
-          <div class="service-description">
-            Serviços de <strong>repintura e retoque</strong>, desde pequenos reparos
-            até pintura completa com acabamento profissional.
-          </div>
-
-          <div class="service-pricing">
-            <div class="price-range">Sob Consulta</div>
-            <div class="price-note">Orçamento personalizado</div>
-          </div>
-
-          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de solicitar orçamento para serviços de Pintura de moto."
-            target="_blank" class="whatsapp-btn">
-            <i class="bi bi-whatsapp"></i>
-            Solicitar Orçamento
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/5527998810245?text=Olá! Gostaria de saber mais sobre os serviços da DL Motors."
-    class="whatsapp-float" target="_blank">
-    <i class="bi bi-whatsapp"></i>
-  </a>
-
-  <script>
-    // Mobile Navigation Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', function () {
-        navMenu.classList.toggle('show');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('bi-list');
-        icon.classList.toggle('bi-x');
-      });
-
-      // Close menu when clicking on a link
-      navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('show');
-          const icon = mobileToggle.querySelector('i');
-          icon.classList.add('bi-list');
-          icon.classList.remove('bi-x');
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5527998810245?text=Olá! Gostaria de saber mais sobre os serviços da DL Motors."
+        class="whatsapp-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('show');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('bi-list');
+                icon.classList.toggle('bi-x');
+            });
+
+            // Close menu when clicking on a link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.add('bi-list');
+                    icon.classList.remove('bi-x');
+                });
+            });
+        }
+
+        // Vehicle Toggle Functionality
+        const vehicleBtns = document.querySelectorAll('.vehicle-btn');
+        const carroServices = document.getElementById('carro-services');
+        const motoServices = document.getElementById('moto-services');
+
+        vehicleBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const vehicle = this.getAttribute('data-vehicle');
+
+                // Remove active class from all buttons
+                vehicleBtns.forEach(b => b.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Show/hide services
+                if (vehicle === 'carro') {
+                    carroServices.classList.remove('hidden');
+                    motoServices.classList.add('hidden');
+                } else if (vehicle === 'moto') {
+                    carroServices.classList.add('hidden');
+                    motoServices.classList.remove('hidden');
+                }
+
+                // Add fade-in animation to new services
+                const activeServices = vehicle === 'carro' ? carroServices : motoServices;
+                activeServices.classList.add('fade-in');
+                setTimeout(() => {
+                    activeServices.classList.remove('fade-in');
+                }, 600);
+            });
         });
-      });
-    }
 
-    // Vehicle Toggle Functionality
-    const vehicleBtns = document.querySelectorAll('.vehicle-btn');
-    const carroServices = document.getElementById('carro-services');
-    const motoServices = document.getElementById('moto-services');
+        // Image Gallery System
+        class ImageGallery {
+            constructor(container) {
+                this.container = container;
+                this.slides = container.querySelectorAll('.gallery-slide');
+                this.dots = container.parentElement.querySelectorAll('.gallery-dot');
+                this.prevBtn = container.querySelector('.gallery-prev');
+                this.nextBtn = container.querySelector('.gallery-next');
+                this.currentImage = container.querySelector('.current-image');
+                this.totalImages = container.querySelector('.total-images');
+                this.currentIndex = 0;
 
-    vehicleBtns.forEach(btn => {
-      btn.addEventListener('click', function () {
-        const vehicle = this.getAttribute('data-vehicle');
+                this.init();
+            }
 
-        // Remove active class from all buttons
-        vehicleBtns.forEach(b => b.classList.remove('active'));
+            init() {
+                // Update counter
+                if (this.totalImages) {
+                    this.totalImages.textContent = this.slides.length;
+                }
 
-        // Add active class to clicked button
-        this.classList.add('active');
+                // Event listeners for navigation
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => this.prevSlide());
+                }
 
-        // Show/hide services
-        if (vehicle === 'carro') {
-          carroServices.classList.remove('hidden');
-          motoServices.classList.add('hidden');
-        } else if (vehicle === 'moto') {
-          carroServices.classList.add('hidden');
-          motoServices.classList.remove('hidden');
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => this.nextSlide());
+                }
+
+                // Event listeners for dots
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Auto-play
+                this.startAutoPlay();
+            }
+
+            goToSlide(index) {
+                // Remove active from current
+                this.slides[this.currentIndex].classList.remove('active');
+                if (this.dots[this.currentIndex]) {
+                    this.dots[this.currentIndex].classList.remove('active');
+                }
+
+                // Update index
+                this.currentIndex = index;
+
+                // Add active to new
+                this.slides[this.currentIndex].classList.add('active');
+                if (this.dots[this.currentIndex]) {
+                    this.dots[this.currentIndex].classList.add('active');
+                }
+
+                // Update counter
+                if (this.currentImage) {
+                    this.currentImage.textContent = this.currentIndex + 1;
+                }
+            }
+
+            nextSlide() {
+                const nextIndex = (this.currentIndex + 1) % this.slides.length;
+                this.goToSlide(nextIndex);
+            }
+
+            prevSlide() {
+                const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+                this.goToSlide(prevIndex);
+            }
+
+            startAutoPlay() {
+                // Auto-play every 4 seconds
+                setInterval(() => {
+                    if (this.slides.length > 1) {
+                        this.nextSlide();
+                    }
+                }, 4000);
+            }
         }
 
-        // Add fade-in animation to new services
-        const activeServices = vehicle === 'carro' ? carroServices : motoServices;
-        activeServices.classList.add('fade-in');
-        setTimeout(() => {
-          activeServices.classList.remove('fade-in');
-        }, 600);
-      });
-    });
-
-    // NOVA FUNCIONALIDADE: Sistema de Galeria de Imagens
-    class ImageGallery {
-      constructor(container) {
-        this.container = container;
-        this.slides = container.querySelectorAll('.gallery-slide');
-        this.dots = container.parentElement.querySelectorAll('.gallery-dot');
-        this.prevBtn = container.querySelector('.gallery-prev');
-        this.nextBtn = container.querySelector('.gallery-next');
-        this.currentImage = container.querySelector('.current-image');
-        this.totalImages = container.querySelector('.total-images');
-        this.currentIndex = 0;
-
-        this.init();
-      }
-
-      init() {
-        // Atualizar contador
-        if (this.totalImages) {
-          this.totalImages.textContent = this.slides.length;
-        }
-
-        // Event listeners para navegação
-        if (this.prevBtn) {
-          this.prevBtn.addEventListener('click', () => this.prevSlide());
-        }
-        
-        if (this.nextBtn) {
-          this.nextBtn.addEventListener('click', () => this.nextSlide());
-        }
-
-        // Event listeners para os dots
-        this.dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => this.goToSlide(index));
+        // Initialize all galleries
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleries = document.querySelectorAll('.gallery-container');
+            galleries.forEach(gallery => {
+                new ImageGallery(gallery);
+            });
         });
 
-        // Auto-play (opcional)
-        this.startAutoPlay();
-      }
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-      goToSlide(index) {
-        // Remove active das slides
-        this.slides[this.currentIndex].classList.remove('active');
-        this.dots[this.currentIndex].classList.remove('active');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-        // Atualiza índice
-        this.currentIndex = index;
+        // Observe service cards for animations
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
 
-        // Adiciona active na nova slide
-        this.slides[this.currentIndex].classList.add('active');
-        this.dots[this.currentIndex].classList.add('active');
-
-        // Atualiza contador
-        if (this.currentImage) {
-          this.currentImage.textContent = this.currentIndex + 1;
-        }
-      }
-
-      nextSlide() {
-        const nextIndex = (this.currentIndex + 1) % this.slides.length;
-        this.goToSlide(nextIndex);
-      }
-
-      prevSlide() {
-        const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-        this.goToSlide(prevIndex);
-      }
-
-      startAutoPlay() {
-        // Auto-play a cada 5 segundos (opcional)
-        setInterval(() => {
-          // Só avança se houver mais de 1 imagem
-          if (this.slides.length > 1) {
-            this.nextSlide();
-          }
-        }, 5000);
-      }
-    }
-
-    // Inicializar todas as galerias
-    document.addEventListener('DOMContentLoaded', () => {
-      const galleries = document.querySelectorAll('.gallery-container');
-      galleries.forEach(gallery => {
-        new ImageGallery(gallery);
-      });
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    // Observe service cards for animations
-    document.querySelectorAll('.service-card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(card);
-    });
-
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Funcionalidade extra: Teclado para navegação
-    document.addEventListener('keydown', (e) => {
-      // Se não houver foco em input, permitir navegação por teclado
-      if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-        if (e.key === 'ArrowLeft') {
-          // Navegar para slide anterior na primeira galeria visível
-          const visibleGallery = document.querySelector('.services-grid:not(.hidden) .gallery-container');
-          if (visibleGallery) {
-            visibleGallery.querySelector('.gallery-prev')?.click();
-          }
-        }
-        if (e.key === 'ArrowRight') {
-          // Navegar para próxima slide na primeira galeria visível
-          const visibleGallery = document.querySelector('.services-grid:not(.hidden) .gallery-container');
-          if (visibleGallery) {
-            visibleGallery.querySelector('.gallery-next')?.click();
-          }
-        }
-      }
-    });
-  </script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

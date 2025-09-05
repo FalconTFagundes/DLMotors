@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Produtos - DL Motors | Estética Automotiva</title>
+  <meta name="description"
+    content="Confira os produtos de estética automotiva da DL Motors em Guarapari-ES. Ceras, shampoos, panos e acessórios de qualidade.">
+  <meta name="keywords" content="produtos estética automotiva, cera, shampoo automotivo, panos microfibra, Guarapari">
+
+  <!-- Favicons -->
+  <link href="assets/img/icon.ico" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f1419 0%, #1e3a8a 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 20px rgba(59, 130, 246, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      height: 50px;
+      min-width: 150px;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Placeholder para logo quando não há imagem */
+    .logo-placeholder {
+      height: 45px;
+      width: 150px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 2px dashed rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(59, 130, 246, 0.6);
+      font-size: 0.9rem;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-menu a:hover {
+      color: #3b82f6;
+    }
+
+    .nav-menu a.active {
+      color: #3b82f6;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      width: 100%;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .nav-menu ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100vw;
+        background: rgba(15, 20, 25, 0.98);
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-menu ul.show {
+        display: flex;
+      }
+
+      .nav-menu ul li {
+        margin: 0.5rem 0;
+      }
+
+      .nav-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+
+      .nav-menu a:hover,
+      .nav-menu a.active {
+        background: rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    /* Main Content */
+    .main {
+      margin-top: 100px;
+      padding: 2rem 0;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 2rem 0;
+      background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
+      margin-bottom: 2rem;
+      border-radius: 15px;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(30, 58, 138, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .product-card {
+      background: rgba(30, 58, 138, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideInUp 0.6s ease-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+    }
+
+    .product-image {
+      height: 200px;
+      background: linear-gradient(45deg, #3b82f6, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-image-placeholder {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 3rem;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #25d366;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      color: #3b82f6;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .product-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #25d366;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(45deg, #25d366, #128c7e);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      flex: 1;
+      justify-content: center;
+      min-width: 130px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-shopee {
+      background: linear-gradient(45deg, #ff4500, #ff8c00);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      flex: 1;
+      justify-content: center;
+      min-width: 130px;
+    }
+
+    .btn-shopee:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: rgba(45, 45, 45, 0.8);
+      padding: 2.5rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 69, 0, 0.2);
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact-cta h2 {
+      color: #ff4500;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .contact-cta p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .page-header {
+        padding: 3rem 0;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        margin-top: 80px;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-buttons {
+        flex-direction: column;
+      }
+
+      .filter-tabs {
+        padding: 0 1rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-whatsapp,
+      .btn-shopee {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .product-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .product-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .product-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .product-card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .product-card:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/img/hero-img_2.png" alt="Logo"
+            onerror="this.parentElement.innerHTML='<div class=&quot;logo-placeholder&quot;>Sua Logo Aqui</div>'">
+        </a>
+
+        <nav class="nav-menu">
+          <ul id="navMenu">
+            <li><a href="index.html">INÍCIO</a></li>
+            <li><a href="services.html">SERVIÇOS</a></li>
+            <li><a href="produtos.html" class="active">PRODUTOS</a></li>
+            <li><a href="contact.html">CONTATO</a></li>
+          </ul>
+          <button class="mobile-nav-toggle" id="mobileToggle">
+            <i class="bi bi-list"></i>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- Apagar este Page-header de "em desenvolvimento" -->
+
+      <div class="page-header">
+        <h1>Em Desenvolvimento</h1>
+        <h2>⚠️ Novidades em breve!</h2>
+        <p>
+          Estamos preparando algo especial para você! Muito em breve, nossos produtos de qualidade estarão disponíveis
+          aqui no site.
+          Enquanto isso, aproveite para comprar diretamente pelo <strong>WhatsApp</strong> 📲 ou em nossa loja oficial
+          na <strong>Shopee</strong> 🛒.
+        </p>
+      </div>
+
+
+
+
+      <!-- Código Comentado - Aguardando Confirmação de Informações -->
+
+      <!-- Page Header -->
+      <!-- <div class="page-header">
+        <h1>Nossos Produtos</h1>
+        <p>Produtos de qualidade para estética automotiva. Compre pelo WhatsApp ou pela nossa loja na Shopee!</p>
+      </div> -->
+
+
+      <!-- Filter Tabs -->
+      <!-- <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="ceras">Ceras</button>
+        <button class="filter-btn" data-filter="shampoos">Shampoos</button>
+        <button class="filter-btn" data-filter="panos">Panos & Esponjas</button>
+        <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+      </div> -->
+
+      <!-- Products Grid -->
+      <!-- div class="products-grid" id="productsGrid"> -->
+
+      <!-- Ceras -->
+      <!-- <div class="product-card" data-category="ceras">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-droplet-fill"></i>
+            </div>
+            <span class="product-badge">Premium</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Ceras</div>
+            <h3 class="product-title">Cera Carnaúba Premium</h3>
+            <p class="product-description">Cera 100% natural de carnaúba, proporciona brilho intenso e proteção duradoura para a pintura do seu veículo.</p>
+            <div class="product-price">R$ 89,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse na Cera Carnaúba Premium - R$ 89,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div>
+ -->
+      <!-- Shampoos -->
+      <!-- <div class="product-card" data-category="shampoos">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-droplet-half"></i>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Shampoos</div>
+            <h3 class="product-title">Shampoo Neutro 1L</h3>
+            <p class="product-description">Shampoo neutro concentrado, ideal para lavagem frequente sem danificar a pintura ou cera aplicada.</p>
+            <div class="product-price">R$ 32,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse no Shampoo Neutro 1L - R$ 32,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div>
+ -->
+      <!-- Panos -->
+      <!-- <div class="product-card" data-category="panos">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-square"></i>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Panos & Esponjas</div>
+            <h3 class="product-title">Kit Panos Microfibra</h3>
+            <p class="product-description">Kit com 3 panos de microfibra premium - lavagem, secagem e aplicação de produtos. Ultra macios e absorventes.</p>
+            <div class="product-price">R$ 45,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse no Kit Panos Microfibra - R$ 45,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div> -->
+
+      <!-- Ceras -->
+      <!--  <div class="product-card" data-category="ceras">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <span class="product-badge">Novo</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Ceras</div>
+            <h3 class="product-title">Cera Sintética 3 em 1</h3>
+            <p class="product-description">Cera sintética que limpa, protege e dá brilho. Fácil aplicação e remoção, ideal para uso doméstico.</p>
+            <div class="product-price">R$ 54,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse na Cera Sintética 3 em 1 - R$ 54,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div>
+ -->
+      <!-- Acessórios -->
+      <!-- <div class="product-card" data-category="acessorios">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-tools"></i>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Acessórios</div>
+            <h3 class="product-title">Aplicador de Cera</h3>
+            <p class="product-description">Aplicador de espuma premium para ceras e selantes. Formato ergonômico e distribuição uniforme do produto.</p>
+            <div class="product-price">R$ 18,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse no Aplicador de Cera - R$ 18,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div> -->
+
+      <!-- Shampoos -->
+      <!-- <div class="product-card" data-category="shampoos">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="bi bi-water"></i>
+            </div>
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Shampoos</div>
+            <h3 class="product-title">Desengraxante Multiuso</h3>
+            <p class="product-description">Desengraxante concentrado para motor, chassi e peças. Remove sujeira pesada e oleosidade com eficácia.</p>
+            <div class="product-price">R$ 28,90</div>
+            <div class="product-buttons">
+              <a href="https://wa.me/5527998810245?text=Olá! Tenho interesse no Desengraxante Multiuso - R$ 28,90" class="btn-whatsapp" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a href="#" class="btn-shopee" target="_blank">
+                <i class="bi bi-bag-fill"></i>
+                Shopee
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div> -->
+
+      <!-- Contact CTA -->
+      <!-- <div class="contact-cta">
+        <h2><i class="bi bi-chat-dots"></i> Dúvidas sobre os Produtos?</h2>
+        <p>Nossa equipe está pronta para te ajudar a escolher os melhores produtos para seu veículo!</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/5527998810245?text=Olá! Gostaria de saber mais sobre os produtos disponíveis." class="btn-whatsapp" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+            Fale Conosco no WhatsApp
+          </a>
+          <a href="contact.html" class="btn-shopee">
+            <i class="bi bi-geo-alt"></i>
+            Visite Nossa Loja
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+ -->
+      <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileToggle && navMenu) {
+          mobileToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('show');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('bi-list');
+            icon.classList.toggle('bi-x');
+          });
+
+          // Close menu when clicking on a link
+          navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              navMenu.classList.remove('show');
+              const icon = mobileToggle.querySelector('i');
+              icon.classList.add('bi-list');
+              icon.classList.remove('bi-x');
+            });
+          });
+        }
+
+        // Product Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter products
+            const filter = button.getAttribute('data-filter');
+
+            productCards.forEach(card => {
+              if (filter === 'todos' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'block';
+                // Re-trigger animation
+                card.style.animation = 'none';
+                setTimeout(() => {
+                  card.style.animation = 'slideInUp 0.6s ease-out';
+                }, 50);
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+
+        // Add hover effect to product cards
+        productCards.forEach(card => {
+          card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+          });
+
+          card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0) scale(1)';
+          });
+        });
+      </script>
+</body>
+
+</html>
